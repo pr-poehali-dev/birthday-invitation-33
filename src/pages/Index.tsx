@@ -30,7 +30,7 @@ function generateBalloons(count: number) {
 const confettiPieces = generateConfetti(60);
 const balloons = generateBalloons(12);
 
-const BIRTHDAY = new Date("2026-07-15T18:00:00");
+const BIRTHDAY = new Date("2026-05-23T18:00:00");
 
 function useCountdown(target: Date) {
   const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -152,7 +152,7 @@ export default function Index() {
             className="text-3xl md:text-5xl font-extrabold tracking-tight"
             style={{ color: "var(--name-color)", textShadow: "2px 2px 0 rgba(0,0,0,0.07)" }}
           >
-            Алексея! 🎂
+            Маргариты! 🎂
           </div>
         </div>
 
@@ -205,7 +205,7 @@ export default function Index() {
           }}
         >
           {[
-            { icon: "📅", label: "Дата", value: "15 июля 2026" },
+            { icon: "📅", label: "Дата", value: "23 мая 2026" },
             { icon: "⏰", label: "Время", value: "18:00" },
             { icon: "📍", label: "Место", value: "Ресторан «Панорама»\nул. Садовая, 15" },
           ].map(({ icon, label, value }) => (
