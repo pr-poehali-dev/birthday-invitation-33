@@ -243,7 +243,7 @@ export default function Index() {
               <span className="font-extrabold text-lg" style={{ color: "var(--card-text)" }}>О празднике</span>
             </div>
             <p className="text-sm leading-relaxed" style={{ color: "var(--body-text)" }}>
-              Приходи отметить вместе незабываемый вечер! Нас ждут живая музыка, вкусные угощения, весёлые конкурсы и тёплая атмосфера в кругу близких. Будет много смеха и ярких воспоминаний! 🌸
+              Приходи отметить вместе незабываемый вечер! Нас ждут живая музыка, вкусные угощения и тёплая атмосфера в кругу близких. Будет много смеха и ярких воспоминаний! 🌸
             </p>
             <div
               className="mt-4 flex items-center gap-3 rounded-xl p-4"
@@ -258,7 +258,50 @@ export default function Index() {
           </div>
         </div>
 
-
+        {/* Map */}
+        <div
+          className="w-full max-w-2xl mb-10"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(30px)",
+            transition: "all 0.7s ease 0.6s",
+          }}
+        >
+          <div
+            className="rounded-2xl overflow-hidden shadow-lg"
+            style={{ border: "2px solid var(--card-border)" }}
+          >
+            <div
+              className="flex items-center gap-2 px-5 py-4"
+              style={{ background: "var(--card-bg)" }}
+            >
+              <span className="text-2xl">📍</span>
+              <span className="font-extrabold text-base" style={{ color: "var(--card-text)" }}>Как добраться</span>
+            </div>
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?ll=104.280556%2C52.289444&z=16&pt=104.280556%2C52.289444&text=%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD+%D0%90%D0%BB%D0%B0%D0%B2%D0%B5%D1%80%D0%B4%D1%8B%2C+%D0%98%D1%80%D0%BA%D1%83%D1%82%D1%81%D0%BA%2C+%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80+%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD%D0%B0+9"
+              width="100%"
+              height="300"
+              frameBorder="0"
+              allowFullScreen
+              style={{ display: "block" }}
+            />
+            <div
+              className="px-5 py-3 flex justify-center"
+              style={{ background: "var(--card-bg)" }}
+            >
+              <a
+                href="https://yandex.ru/maps/?text=%D0%A0%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD+%D0%90%D0%BB%D0%B0%D0%B2%D0%B5%D1%80%D0%B4%D1%8B%2C+%D0%98%D1%80%D0%BA%D1%83%D1%82%D1%81%D0%BA%2C+%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80+%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD%D0%B0+9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm transition-all hover:scale-105"
+                style={{ background: "var(--btn-gradient)", color: "#fff" }}
+              >
+                🗺️ Открыть маршрут
+              </a>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
