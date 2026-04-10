@@ -99,3 +99,73 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ===== BIRTHDAY PARTY THEME ===== */
+:root {
+  --bg-gradient: linear-gradient(135deg, #fff0fb 0%, #fff8e1 40%, #e8f4ff 100%);
+  --accent-gradient: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff);
+  --btn-gradient: linear-gradient(
+    135deg,
+    #ff6b6b 0%,
+    #ff9f1c 50%,
+    #ffd93d 100%
+  );
+  --title-color: #e91e8c;
+  --name-color: #7c3aed;
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-border: rgba(255, 107, 107, 0.25);
+  --card-text: #1a1a2e;
+  --body-text: #4a4a6a;
+  --muted-text: #9e7fb0;
+  --timer-bg: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  --timer-text: #fff;
+  --input-bg: #faf5ff;
+  --dresscode-bg: linear-gradient(135deg, #fff0fb, #fff8e1);
+  --contact-bg: #f3e8ff;
+}
+
+/* Confetti falling animation */
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-20px) rotate(0deg) scaleX(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) scaleX(-1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg) scaleX(1);
+    opacity: 0;
+  }
+}
+
+.confetti-fall {
+  animation: confettiFall linear infinite;
+}
+
+/* Balloon float animation */
+@keyframes balloonFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(20px);
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(-10px);
+    opacity: 0;
+  }
+}
+
+.balloon-float {
+  animation: balloonFloat ease-in-out infinite;
+}
