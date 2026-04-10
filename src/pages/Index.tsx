@@ -207,7 +207,7 @@ export default function Index() {
           {[
             { icon: "📅", label: "Дата", value: "23 мая 2026" },
             { icon: "⏰", label: "Время", value: "18:00" },
-            { icon: "📍", label: "Место", value: "Ресторан «Панорама»\nул. Садовая, 15" },
+            { icon: "📍", label: "Место", value: "Ресторан «Алаверды»" },
           ].map(({ icon, label, value }) => (
             <div
               key={label}
