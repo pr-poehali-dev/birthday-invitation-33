@@ -258,33 +258,7 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Contacts */}
-        <div
-          className="w-full max-w-2xl"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 0.7s ease 0.6s",
-          }}
-        >
-          <div
-            className="rounded-2xl p-6 shadow-lg text-center"
-            style={{ background: "var(--card-bg)", border: "2px solid var(--card-border)" }}
-          >
-            <div className="font-extrabold text-sm uppercase tracking-widest mb-4" style={{ color: "var(--muted-text)" }}>
-              ✈️ Контакты для вопросов
-            </div>
-            <div className="flex justify-center">
-              <a
-                href="https://t.me/example"
-                className="flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all hover:scale-105"
-                style={{ background: "var(--contact-bg)", color: "var(--card-text)" }}
-              >
-                ✈️ Telegram: @example
-              </a>
-            </div>
-          </div>
-        </div>
+
 
       </div>
     </div>
