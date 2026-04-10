@@ -206,7 +206,7 @@ export default function Index() {
         >
           {[
             { icon: "📅", label: "Дата", value: "23 мая 2026" },
-            { icon: "⏰", label: "Время", value: "18:00" },
+            { icon: "⏰", label: "Время", value: "17:00" },
             { icon: "📍", label: "Место", value: "Ресторан «Алаверды»\nбул. Гагарина, 9, 2 этаж\nИркутск" },
           ].map(({ icon, label, value }) => (
             <div
@@ -252,92 +252,9 @@ export default function Index() {
               <span className="text-2xl">👗</span>
               <div>
                 <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "var(--muted-text)" }}>Дресс-код</div>
-                <div className="font-bold" style={{ color: "var(--card-text)" }}>Праздничный / Smart Casual</div>
-                <div className="text-xs mt-0.5" style={{ color: "var(--body-text)" }}>Приветствуются яркие цвета!</div>
+                <div className="font-bold" style={{ color: "var(--card-text)" }}>Хорошее настроение!</div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* RSVP Form */}
-        <div
-          className="w-full max-w-2xl mb-10"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 0.7s ease 0.6s",
-          }}
-        >
-          <div
-            className="rounded-3xl p-6 shadow-2xl"
-            style={{ background: "var(--card-bg)", border: "3px solid var(--card-border)" }}
-          >
-            <div className="flex items-center gap-2 mb-5">
-              <span className="text-2xl">📝</span>
-              <span className="font-extrabold text-xl" style={{ color: "var(--card-text)" }}>Подтвердить участие</span>
-            </div>
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "var(--muted-text)" }}>
-                    Ваше имя
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Введите ваше имя"
-                    className="w-full rounded-xl px-4 py-3 text-sm font-medium outline-none transition-all"
-                    style={{
-                      background: "var(--input-bg)",
-                      border: "2px solid var(--card-border)",
-                      color: "var(--card-text)",
-                    }}
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "var(--muted-text)" }}>
-                    Количество гостей
-                  </label>
-                  <select
-                    value={guests}
-                    onChange={(e) => setGuests(e.target.value)}
-                    className="w-full rounded-xl px-4 py-3 text-sm font-medium outline-none"
-                    style={{
-                      background: "var(--input-bg)",
-                      border: "2px solid var(--card-border)",
-                      color: "var(--card-text)",
-                    }}
-                  >
-                    {["1", "2", "3", "4", "5+"].map((n) => (
-                      <option key={n} value={n}>{n} {n === "1" ? "гость" : "гостя"}</option>
-                    ))}
-                  </select>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full rounded-xl py-4 font-extrabold text-base tracking-wide shadow-lg transition-all hover:scale-105 active:scale-95"
-                  style={{
-                    background: "var(--btn-gradient)",
-                    color: "#fff",
-                    border: "none",
-                  }}
-                >
-                  🎉 Я приду!
-                </button>
-              </form>
-            ) : (
-              <div className="text-center py-6">
-                <div className="text-5xl mb-3">🌸</div>
-                <div className="font-extrabold text-xl mb-1" style={{ color: "var(--card-text)" }}>
-                  Отлично, {name}!
-                </div>
-                <div className="text-sm" style={{ color: "var(--body-text)" }}>
-                  Ждём тебя! До встречи на празднике 🥳
-                </div>
-              </div>
-            )}
           </div>
         </div>
 
@@ -347,7 +264,7 @@ export default function Index() {
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 0.7s ease 0.7s",
+            transition: "all 0.7s ease 0.6s",
           }}
         >
           <div
@@ -355,16 +272,9 @@ export default function Index() {
             style={{ background: "var(--card-bg)", border: "2px solid var(--card-border)" }}
           >
             <div className="font-extrabold text-sm uppercase tracking-widest mb-4" style={{ color: "var(--muted-text)" }}>
-              📞 Контакты для вопросов
+              ✈️ Контакты для вопросов
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-              <a
-                href="tel:+79001234567"
-                className="flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all hover:scale-105"
-                style={{ background: "var(--contact-bg)", color: "var(--card-text)" }}
-              >
-                📱 +7 (900) 123-45-67
-              </a>
+            <div className="flex justify-center">
               <a
                 href="https://t.me/example"
                 className="flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all hover:scale-105"
