@@ -129,7 +129,7 @@ export default function Index() {
             transition: "all 0.6s ease",
           }}
         >
-          🌸 ТЫ ПРИГЛАШЕНА!
+          🌸 ВЫ ПРИГЛАШЕНЫ!
         </div>
 
         {/* Hero */}
@@ -143,14 +143,14 @@ export default function Index() {
         >
           <div className="text-7xl mb-4">💐</div>
           <h1
-            className="text-5xl md:text-7xl leading-tight mb-3"
-            style={{ fontFamily: "'Pacifico', cursive", color: "var(--title-color)", textShadow: "3px 3px 0 rgba(0,0,0,0.08)" }}
+            className="text-2xl md:text-3xl leading-tight mb-3 font-bold tracking-wide"
+            style={{ color: "var(--title-color)" }}
           >
             День Рождения
           </h1>
           <div
-            className="text-3xl md:text-5xl font-extrabold tracking-tight"
-            style={{ color: "var(--name-color)", textShadow: "2px 2px 0 rgba(0,0,0,0.07)" }}
+            className="text-5xl md:text-7xl font-extrabold tracking-tight"
+            style={{ fontFamily: "'Pacifico', cursive", color: "var(--name-color)", textShadow: "3px 3px 0 rgba(0,0,0,0.08)" }}
           >
             Маргариты! 🌷
           </div>
