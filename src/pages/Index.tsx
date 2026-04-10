@@ -130,6 +130,40 @@ export default function Index() {
         ))}
       </div>
 
+      {/* Floral background layer */}
+      <div className="floral-bg">
+        {[
+          { emoji: "🌸", top: "4%", left: "3%", delay: "0s", dur: "4s" },
+          { emoji: "🌺", top: "12%", left: "18%", delay: "0.5s", dur: "5s" },
+          { emoji: "🌷", top: "3%", left: "35%", delay: "1s", dur: "3.5s" },
+          { emoji: "🌼", top: "8%", left: "55%", delay: "0.3s", dur: "4.5s" },
+          { emoji: "🌸", top: "5%", left: "72%", delay: "1.2s", dur: "5s" },
+          { emoji: "🌺", top: "15%", left: "88%", delay: "0.7s", dur: "4s" },
+          { emoji: "🪷", top: "30%", left: "1%", delay: "1.5s", dur: "5.5s" },
+          { emoji: "🌹", top: "35%", left: "96%", delay: "0.2s", dur: "4.2s" },
+          { emoji: "🌼", top: "55%", left: "5%", delay: "0.9s", dur: "3.8s" },
+          { emoji: "🌷", top: "60%", left: "92%", delay: "1.3s", dur: "5s" },
+          { emoji: "🌸", top: "75%", left: "10%", delay: "0.4s", dur: "4.7s" },
+          { emoji: "🌺", top: "78%", left: "82%", delay: "1.1s", dur: "3.5s" },
+          { emoji: "🪷", top: "88%", left: "25%", delay: "0.6s", dur: "4.3s" },
+          { emoji: "🌹", top: "90%", left: "60%", delay: "1.4s", dur: "5.2s" },
+          { emoji: "🌼", top: "92%", left: "44%", delay: "0.8s", dur: "4s" },
+          { emoji: "🌸", top: "48%", left: "48%", delay: "1.6s", dur: "6s" },
+        ].map((f, i) => (
+          <span
+            key={i}
+            style={{
+              top: f.top,
+              left: f.left,
+              animationDelay: f.delay,
+              animationDuration: f.dur,
+            }}
+          >
+            {f.emoji}
+          </span>
+        ))}
+      </div>
+
       {/* Floating balloons */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         {balloons.map((b) => (
