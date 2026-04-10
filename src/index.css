@@ -102,26 +102,26 @@
 
 /* ===== BIRTHDAY PARTY THEME ===== */
 :root {
-  --bg-gradient: linear-gradient(135deg, #fff0fb 0%, #fff8e1 40%, #e8f4ff 100%);
-  --accent-gradient: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff);
+  --bg-gradient: linear-gradient(135deg, #f5f0ff 0%, #ede8ff 50%, #faf5ff 100%);
+  --accent-gradient: linear-gradient(90deg, #a78bfa, #c084fc, #e879f9, #818cf8);
   --btn-gradient: linear-gradient(
     135deg,
-    #ff6b6b 0%,
-    #ff9f1c 50%,
-    #ffd93d 100%
+    #7c3aed 0%,
+    #a855f7 50%,
+    #c084fc 100%
   );
-  --title-color: #e91e8c;
-  --name-color: #7c3aed;
-  --card-bg: rgba(255, 255, 255, 0.88);
-  --card-border: rgba(255, 107, 107, 0.25);
-  --card-text: #1a1a2e;
-  --body-text: #4a4a6a;
-  --muted-text: #9e7fb0;
-  --timer-bg: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  --title-color: #6d28d9;
+  --name-color: #a21caf;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border: rgba(167, 139, 250, 0.35);
+  --card-text: #2e1065;
+  --body-text: #4c1d95;
+  --muted-text: #7c3aed;
+  --timer-bg: linear-gradient(135deg, #7c3aed, #a855f7);
   --timer-text: #fff;
-  --input-bg: #faf5ff;
-  --dresscode-bg: linear-gradient(135deg, #fff0fb, #fff8e1);
-  --contact-bg: #f3e8ff;
+  --input-bg: #f5f0ff;
+  --dresscode-bg: linear-gradient(135deg, #ede9fe, #faf5ff);
+  --contact-bg: #ede9fe;
 }
 
 /* Confetti falling animation */

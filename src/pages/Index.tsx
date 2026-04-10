@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
-const CONFETTI_COLORS = ["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF", "#FF6FC8", "#FF9F1C", "#A855F7", "#00D4FF"];
-const BALLOON_EMOJIS = ["🎈", "🎉", "🎊", "🥳", "🎁", "✨", "⭐", "🌟"];
+const CONFETTI_COLORS = ["#a78bfa", "#c084fc", "#e879f9", "#818cf8", "#ddd6fe", "#f0abfc", "#7c3aed", "#d8b4fe"];
+const BALLOON_EMOJIS = ["🌸", "🌺", "🌷", "💐", "🌼", "🌻", "🪷", "🌹"];
 
 function generateConfetti(count: number) {
   return Array.from({ length: count }, (_, i) => ({
@@ -129,7 +129,7 @@ export default function Index() {
             transition: "all 0.6s ease",
           }}
         >
-          🎉 ТЫ ПРИГЛАШЁН!
+          🌸 ТЫ ПРИГЛАШЕНА!
         </div>
 
         {/* Hero */}
@@ -141,7 +141,7 @@ export default function Index() {
             transition: "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s",
           }}
         >
-          <div className="text-7xl mb-4">🥳</div>
+          <div className="text-7xl mb-4">💐</div>
           <h1
             className="text-5xl md:text-7xl leading-tight mb-3"
             style={{ fontFamily: "'Pacifico', cursive", color: "var(--title-color)", textShadow: "3px 3px 0 rgba(0,0,0,0.08)" }}
@@ -152,7 +152,7 @@ export default function Index() {
             className="text-3xl md:text-5xl font-extrabold tracking-tight"
             style={{ color: "var(--name-color)", textShadow: "2px 2px 0 rgba(0,0,0,0.07)" }}
           >
-            Маргариты! 🎂
+            Маргариты! 🌷
           </div>
         </div>
 
@@ -239,11 +239,11 @@ export default function Index() {
             style={{ background: "var(--card-bg)", border: "2px solid var(--card-border)" }}
           >
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-2xl">🎊</span>
+              <span className="text-2xl">🌺</span>
               <span className="font-extrabold text-lg" style={{ color: "var(--card-text)" }}>О празднике</span>
             </div>
             <p className="text-sm leading-relaxed" style={{ color: "var(--body-text)" }}>
-              Приходи отметить вместе незабываемый вечер! Нас ждут живая музыка, вкусные угощения, весёлые конкурсы и тёплая атмосфера в кругу близких. Будет много смеха и ярких воспоминаний! ✨
+              Приходи отметить вместе незабываемый вечер! Нас ждут живая музыка, вкусные угощения, весёлые конкурсы и тёплая атмосфера в кругу близких. Будет много смеха и ярких воспоминаний! 🌸
             </p>
             <div
               className="mt-4 flex items-center gap-3 rounded-xl p-4"
@@ -329,7 +329,7 @@ export default function Index() {
               </form>
             ) : (
               <div className="text-center py-6">
-                <div className="text-5xl mb-3">🎊</div>
+                <div className="text-5xl mb-3">🌸</div>
                 <div className="font-extrabold text-xl mb-1" style={{ color: "var(--card-text)" }}>
                   Отлично, {name}!
                 </div>
