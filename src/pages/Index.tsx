@@ -55,21 +55,54 @@ function useCountdown(target: Date) {
   return time;
 }
 
+interface Wish {
+  id: number;
+  author: string;
+  text: string;
+  date: string;
+}
+
 export default function Index() {
   const { days, hours, minutes, seconds } = useCountdown(BIRTHDAY);
-  const [name, setName] = useState("");
-  const [guests, setGuests] = useState("1");
-  const [submitted, setSubmitted] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [photo, setPhoto] = useState<string | null>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
+  const [wishes, setWishes] = useState<Wish[]>(() => {
+    try { return JSON.parse(localStorage.getItem("birthday_wishes") || "[]"); } catch { return []; }
+  });
+  const [wishAuthor, setWishAuthor] = useState("");
+  const [wishText, setWishText] = useState("");
+  const [wishSent, setWishSent] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
     return () => clearTimeout(t);
   }, []);
 
-  function handleSubmit(e: React.FormEvent) {
+  function handlePhotoChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => setPhoto(ev.target?.result as string);
+    reader.readAsDataURL(file);
+  }
+
+  function handleWishSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    if (!wishAuthor.trim() || !wishText.trim()) return;
+    const newWish: Wish = {
+      id: Date.now(),
+      author: wishAuthor.trim(),
+      text: wishText.trim(),
+      date: new Date().toLocaleDateString("ru-RU"),
+    };
+    const updated = [newWish, ...wishes];
+    setWishes(updated);
+    localStorage.setItem("birthday_wishes", JSON.stringify(updated));
+    setWishAuthor("");
+    setWishText("");
+    setWishSent(true);
+    setTimeout(() => setWishSent(false), 3000);
   }
 
   return (
@@ -130,6 +163,42 @@ export default function Index() {
           }}
         >
           🌸 ВЫ ПРИГЛАШЕНЫ!
+        </div>
+
+        {/* Photo */}
+        <div
+          className="mb-8 flex flex-col items-center"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "scale(1)" : "scale(0.9)",
+            transition: "all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s",
+          }}
+        >
+          <div
+            className="relative cursor-pointer group"
+            onClick={() => fileRef.current?.click()}
+          >
+            <div
+              className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden shadow-2xl flex items-center justify-center"
+              style={{ border: "5px solid var(--card-border)", background: "var(--dresscode-bg)" }}
+            >
+              {photo ? (
+                <img src={photo} alt="Маргарита" className="w-full h-full object-cover" />
+              ) : (
+                <div className="flex flex-col items-center gap-2 px-4 text-center">
+                  <span className="text-4xl">🌷</span>
+                  <span className="text-xs font-bold" style={{ color: "var(--muted-text)" }}>Нажми, чтобы<br/>добавить фото</span>
+                </div>
+              )}
+            </div>
+            <div
+              className="absolute bottom-2 right-2 w-9 h-9 rounded-full flex items-center justify-center shadow-lg text-white text-lg transition-transform group-hover:scale-110"
+              style={{ background: "var(--btn-gradient)" }}
+            >
+              📷
+            </div>
+          </div>
+          <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handlePhotoChange} />
         </div>
 
         {/* Hero */}
@@ -255,6 +324,73 @@ export default function Index() {
                 <div className="font-bold" style={{ color: "var(--card-text)" }}>Хорошее настроение!</div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Wishes */}
+        <div
+          className="w-full max-w-2xl mb-10"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(30px)",
+            transition: "all 0.7s ease 0.65s",
+          }}
+        >
+          <div
+            className="rounded-2xl p-6 shadow-lg"
+            style={{ background: "var(--card-bg)", border: "2px solid var(--card-border)" }}
+          >
+            <div className="flex items-center gap-2 mb-5">
+              <span className="text-2xl">💌</span>
+              <span className="font-extrabold text-lg" style={{ color: "var(--card-text)" }}>Пожелания имениннице</span>
+            </div>
+            <form onSubmit={handleWishSubmit} className="flex flex-col gap-3 mb-6">
+              <input
+                type="text"
+                required
+                value={wishAuthor}
+                onChange={(e) => setWishAuthor(e.target.value)}
+                placeholder="Ваше имя"
+                className="w-full rounded-xl px-4 py-3 text-sm font-medium outline-none"
+                style={{ background: "var(--input-bg)", border: "2px solid var(--card-border)", color: "var(--card-text)" }}
+              />
+              <textarea
+                required
+                value={wishText}
+                onChange={(e) => setWishText(e.target.value)}
+                placeholder="Напишите пожелание Маргарите..."
+                rows={3}
+                className="w-full rounded-xl px-4 py-3 text-sm font-medium outline-none resize-none"
+                style={{ background: "var(--input-bg)", border: "2px solid var(--card-border)", color: "var(--card-text)" }}
+              />
+              <button
+                type="submit"
+                className="w-full rounded-xl py-3 font-extrabold text-sm tracking-wide shadow transition-all hover:scale-105 active:scale-95"
+                style={{ background: "var(--btn-gradient)", color: "#fff", border: "none" }}
+              >
+                {wishSent ? "🌸 Отправлено!" : "💌 Отправить пожелание"}
+              </button>
+            </form>
+            {wishes.length > 0 && (
+              <div className="flex flex-col gap-3">
+                {wishes.map((w) => (
+                  <div
+                    key={w.id}
+                    className="rounded-xl p-4"
+                    style={{ background: "var(--dresscode-bg)", border: "1px solid var(--card-border)" }}
+                  >
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-bold text-sm" style={{ color: "var(--card-text)" }}>🌷 {w.author}</span>
+                      <span className="text-xs" style={{ color: "var(--muted-text)" }}>{w.date}</span>
+                    </div>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--body-text)" }}>{w.text}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+            {wishes.length === 0 && (
+              <p className="text-center text-sm" style={{ color: "var(--muted-text)" }}>Будьте первым, кто напишет пожелание! 🌸</p>
+            )}
           </div>
         </div>
 
